@@ -1,5 +1,5 @@
 <?php
-namespace App\Log\Engine;
+namespace Logstash\Log\Engine;
 
 use Cake\Log\Engine\BaseLog;
 use Cake\Network\Exception\SocketException;

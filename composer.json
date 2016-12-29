@@ -1,6 +1,6 @@
 {
-    "name": "panter4/cakephp3-logstash",
-    "description": "CakePHP logstash log stream",
+    "name": "panter4/cakephp-logstash",
+    "description": "CakePHP logstash plugin",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "log", "logstash"],
     "homepage": "https://github.com/panter4/cakephp-logstash",
@@ -12,11 +12,17 @@
         },
         {
             "name": "José Lorenzo Rodríguez",
-            "role": "Inspiration"
+            "role": "Original Author"
         }
     ],
     "require": {
-        "composer/installers": "*"
+        "php": ">=5.5",
+        "cakephp/cakephp": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Logstash\\": "src"
+        }
     },
     "extra": {
         "installer-name": "Logstash"

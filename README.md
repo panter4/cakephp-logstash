@@ -9,18 +9,15 @@
 
 ## Installation ##
 
-//TODO: documentation
+1. copy plugin into
 
-enable plugin:
+        /src/app/plugins/Logstash
 
-    // In config/bootstrap.php
-    // Or in Application::bootstrap()
+2. enable plugin:
 
-    //load all plugins
-    Plugin::loadAll();
-
-    // Loads a single plugin
-    Plugin::load('Logstash');
+        //In config/bootstrap.php
+        //Or in Application::bootstrap()
+        Plugin::load('Logstash', ['autoload' => true]);
 
 
 ## Usage ##
@@ -29,7 +26,7 @@ in your app.php configure loging engine
 
     'Log' => [
         'debug' => [
-            'className' => 'Cake\Log\Engine\LogstashLog',
+            'className' => 'Logstash\Log\Engine\LogstashLog',
             'levels' => ['notice', 'info', 'debug'],
 
             'host'=>'udp://{logstashHostname}', //should support tcp://
@@ -37,7 +34,7 @@ in your app.php configure loging engine
             'tags'=>['cake_php', 'debug']
         ],
         'error' => [
-            'className' => 'Cake\Log\Engine\LogstashLog',
+            'className' => 'Logstash\Log\Engine\LogstashLog',
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
 
             'host'=>'udp://{logstashHostname}', //should support tcp://
@@ -48,6 +45,7 @@ in your app.php configure loging engine
 
 
 ## Known issues ##
-    missing
-        proper documentation
-        packagist composer support
+missing:
+    composer support - proper autoloading
+    better documentation
+    tests
