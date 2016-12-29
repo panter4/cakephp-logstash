@@ -1,14 +1,18 @@
 {
-    "name": "lorenzo/cakephp-logstash",
+    "name": "panter4/cakephp3-logstash",
     "description": "CakePHP logstash log stream",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "log", "logstash"],
-    "homepage": "https://github.com/lorenzo/cakephp-logstash",
+    "homepage": "https://github.com/panter4/cakephp-logstash",
     "license": "MIT",
     "authors": [
         {
-            "name": "José Lorenzo Rodríguez",
+            "name": "Leo Kolar",
             "role": "Author"
+        },
+        {
+            "name": "José Lorenzo Rodríguez",
+            "role": "Inspiration"
         }
     ],
     "require": {

@@ -1,34 +1,53 @@
-# Logstash log stream for CakePHP#
+# Logstash log stream for CakePHP 3.x#
 
 
 ## Requirements ##
 
-* CakePHP 2.x
+* CakePHP 3.x
 * PHP 5.3+
 * Composer
 
 ## Installation ##
 
-The only installation method supported by this plugin is by using composer. Just add this to your composer.json configuration:
+//TODO: documentation
 
-	{
-	  "require" : {
-		"lorenzo/cakephp-logstash": "master"
-	  }
-	}
+enable plugin:
 
-### Enable plugin
+    // In config/bootstrap.php
+    // Or in Application::bootstrap()
 
-You need to enable the plugin your `app/Config/bootstrap.php` file:
+    //load all plugins
+    Plugin::loadAll();
 
-    CakePlugin::load('Logstash');
+    // Loads a single plugin
+    Plugin::load('Logstash');
 
-Finally add a new logging stream in the same file:
 
-	CakeLog::config('debug', array(
-		'engine' => 'Logstash.LogstashLog',
-		'types' => array('list', 'of', 'type', 'to', 'log'),
-		'host' => 'tcp://127.0.0.1', // Set it to the real host works with udp too
-		'port' => 2020, // Set it to the actual port
-		'timeout' => 5 // Connection timeout
-	));
+## Usage ##
+
+in your app.php configure loging engine
+
+    'Log' => [
+        'debug' => [
+            'className' => 'Cake\Log\Engine\LogstashLog',
+            'levels' => ['notice', 'info', 'debug'],
+
+            'host'=>'udp://{logstashHostname}', //should support tcp://
+            'port'=>{logstash input port},
+            'tags'=>['cake_php', 'debug']
+        ],
+        'error' => [
+            'className' => 'Cake\Log\Engine\LogstashLog',
+            'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
+
+            'host'=>'udp://{logstashHostname}', //should support tcp://
+            'port'=>{logstash input port},
+            'tags'=>['cake_php', 'error']
+        ],
+    ],
+
+
+## Known issues ##
+    missing
+        proper documentation
+        packagist composer support
